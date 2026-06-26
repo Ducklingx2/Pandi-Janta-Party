@@ -372,6 +372,27 @@ footer{
 </footer>
 
 <script>
+let entrancesFound = 0; 
+const messages = [
+
+    "YOU THINK YOU HAVE FOUND US...NOT YET.",
+
+    "HMMMMMMMM...WE SEE YOU.",
+
+    "YOU MIGHT BE WORTHY. KEEP SEARCHING.",
+
+    "ARE YOU ONE OF US? OR ARE YOU ONLY CURIOUS?",
+
+    `YOU ARE TRULY UNEMPLOYED.
+    REGARDLESS OF WHETHER YOU ARE A MEMBER OF THE PANDIST CULT OR NOT...
+    YOU HAVE SHOWN YOUR WORTH.
+    JOIN US.
+    OR...
+    IF YOU ARE ALREADY ONE OF US...
+    WELCOME HOME, COMRADE...
+    WE HAVE BEEN EXPECTING YOU.`
+
+];        
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
         if(entry.isIntersecting){
@@ -412,6 +433,7 @@ joinButton.addEventListener("click", () => {
     }
 
 });
+
 </script>    
 </body>
 </html>
