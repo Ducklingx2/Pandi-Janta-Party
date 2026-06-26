@@ -6,8 +6,6 @@
 
 <title>Pandi Janta Party</title>
 
- <link rel="icon" type="image/png" href="assets/AaravPandi.jpg">   
-
 <style>
 *{
     margin:0;
@@ -192,6 +190,49 @@ footer{
     transform:translateY(0);
 }
 
+.buttonContainer{
+    position:relative;
+    width:260px;
+    height:60px;
+    margin-top:35px;
+}
+
+#secretButton{
+    position:absolute;
+    inset:0;
+
+    opacity:0;
+
+    cursor:pointer;
+
+    z-index:1;
+}
+
+.btn{
+    position:absolute;
+    inset:0;
+
+    z-index:2;
+
+    transition:
+        transform .8s ease,
+        opacity .8s ease,
+        box-shadow .6s ease;
+}
+
+.btn.awaken{
+
+    box-shadow:
+        0 0 20px gold,
+        0 0 60px gold;
+
+    transform:
+        translateX(600px)
+        rotate(15deg);
+
+    opacity:0;
+} 
+
 </style>
 </head>
 
@@ -217,7 +258,15 @@ footer{
         for future generations.
     </p>
 
-    <button class="btn">Join The Movement</button>
+    <div class="buttonContainer">
+
+    <button class="btn" id="joinButton">
+        Join The Movement
+    </button>
+
+    <div id="secretButton"></div>
+
+</div>
 </section>
 
 <section id="principles" class="fade">
@@ -333,6 +382,35 @@ const observer = new IntersectionObserver(entries => {
 
 document.querySelectorAll(".fade").forEach(el => {
     observer.observe(el);
+});
+
+const joinButton = document.getElementById("joinButton");
+const secretButton = document.getElementById("secretButton");
+
+let activated = false;
+let clicks = 0;
+
+joinButton.addEventListener("click", () => {
+
+    if(activated) return;
+
+    activated = true;
+
+    joinButton.classList.add("awaken");
+
+});
+ secretButton.addEventListener("click", () => {
+
+    if(!activated) return;
+
+    clicks++;
+
+    if(clicks >= 3){
+
+        window.location.href = "cult/";
+
+    }
+
 });
 </script>    
 </body>
