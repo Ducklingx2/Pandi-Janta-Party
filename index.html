@@ -282,7 +282,6 @@ footer{
 
 .btn{
     margin-top:35px;
-    padding:15px 35px;
     border:none;
     border-radius:50px;
     background:#d4af37;
@@ -543,10 +542,12 @@ const navbarSecret = document.getElementById("navbarSecret");
     
 joinButton.addEventListener("click", () => {
 
+    joinButton.classList.add("awaken");
+
     discover("join");
 
 });
-
+    
 navbarSecret.addEventListener("click", () => {
 
     discover("navbar");
