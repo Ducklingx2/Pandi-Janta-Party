@@ -233,14 +233,97 @@ footer{
     opacity:0;
 } 
 
+#glitchScreen{
+
+    position:fixed;
+
+    inset:0;
+
+    background:black;
+
+    display:none;
+
+    justify-content:center;
+    align-items:center;
+
+    z-index:999999;
+
+}
+
+#glitchText{
+
+    color:white;
+
+    font-size:2rem;
+
+    text-align:center;
+
+    white-space:pre-line;
+
+    animation:flicker .8s infinite;
+
+}
+
+@keyframes flicker{
+
+    0%,100%{
+
+        opacity:1;
+
+    }
+
+    50%{
+
+        opacity:.2;
+
+    }
+
+}
+
+.btn{
+    margin-top:35px;
+    padding:15px 35px;
+    border:none;
+    border-radius:50px;
+    background:#d4af37;
+    color:black;
+    font-size:1rem;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.buttonContainer{
+    position:relative;
+    display:inline-block;
+}
+
+.cultButton{
+    position:relative;
+    z-index:2;
+    transition:
+        transform .8s ease,
+        opacity .8s ease,
+        box-shadow .8s ease;
+}  
+
+#navbarSecret{
+    width:40px;
+    height:40px;
+    cursor:pointer;
+    flex-shrink:0;
+}    
 </style>
 </head>
 
 <body>
 
 <nav>
-    <div class="logo">Pandi Janta Party</div>
+    <div id="navbarSecret"></div>
 
+    <div class="logo">
+        Pandi Janta Party
+    </div>
     <div class="nav-links">
         <a href="#principles">Principles</a>
         <a href="#founder">Founder</a>
@@ -260,12 +343,13 @@ footer{
 
     <div class="buttonContainer">
 
-    <button class="btn" id="joinButton">
+    <button class="btn cultButton" id="joinButton">
         Join The Movement
     </button>
 
     <div id="secretButton"></div>
 
+     </div>
 </div>
 </section>
 
@@ -389,7 +473,8 @@ const messages = [
     JOIN US.
     OR...
     IF YOU ARE ALREADY ONE OF US...
-    WELCOME HOME, COMRADE...
+    NO WORRIES. EITHER WAY...
+    WELCOME HOME, COMRADE.
     WE HAVE BEEN EXPECTING YOU.`
 
 ];        
@@ -400,40 +485,99 @@ const observer = new IntersectionObserver(entries => {
         }
     });
 });
+    
+const found = {
+    join: false,
+    navbar: false,
+    portrait: false,
+    copyright: false,
+    hoodies: false
+};
 
+function discover(trigger){
+
+    if(found[trigger]) return;
+
+    found[trigger] = true;
+
+    const message =
+        messages[entrancesFound];
+
+    entrancesFound++;
+
+    showMessage(message);
+
+};
+
+function showMessage(message){
+
+    const screen =
+        document.getElementById("glitchScreen");
+
+    const text =
+        document.getElementById("glitchText");
+
+    screen.style.display = "flex";
+
+    text.textContent = message;
+
+    setTimeout(() => {
+
+        screen.style.display = "none";
+
+        if(entrancesFound === 5){
+
+            window.location.href = "cult/";
+
+        }
+
+    },5000);
+
+};
 document.querySelectorAll(".fade").forEach(el => {
     observer.observe(el);
 });
 
 const joinButton = document.getElementById("joinButton");
-const secretButton = document.getElementById("secretButton");
 
-let activated = false;
-let clicks = 0;
-
+const navbarSecret = document.getElementById("navbarSecret");
+    
 joinButton.addEventListener("click", () => {
 
-    if(activated) return;
-
-    activated = true;
-
-    joinButton.classList.add("awaken");
-
-});
- secretButton.addEventListener("click", () => {
-
-    if(!activated) return;
-
-    clicks++;
-
-    if(clicks >= 3){
-
-        window.location.href = "cult/";
-
-    }
+    discover("join");
 
 });
 
+navbarSecret.addEventListener("click", () => {
+
+    discover("navbar");
+
+});
+
+portrait.addEventListener("click", () => {
+
+    discover("portrait");
+
+});
+
+copyrightSecret.addEventListener("click", () => {
+
+    discover("copyright");
+
+});
+
+hoodieSecret.addEventListener("click", () => {
+
+    discover("hoodies");
+
+});
+
+    
 </script>    
+<div id="glitchScreen">
+
+    <div id="glitchText"></div>
+
+</div>
 </body>
 </html>
