@@ -206,6 +206,8 @@ footer{
     cursor:pointer;
 
     z-index:1;
+    
+    pointer-events:none;
 }
 
 .btn{
@@ -569,6 +571,16 @@ hoodieSecret.addEventListener("click", () => {
 
 });
 
+joinButton.addEventListener("click", () => {
+
+    joinButton.classList.add("awaken");
+
+    discover("join");
+
+    setTimeout(() => {
+        secretButton.style.pointerEvents = "auto";
+    }, 800); // Match your animation duration
+});
     
 </script>    
 <div id="glitchScreen">
