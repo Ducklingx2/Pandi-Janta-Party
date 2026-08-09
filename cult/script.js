@@ -11,6 +11,15 @@ const introText =
 const cultInterface =
     document.getElementById("cultInterface");
 
+const lastMessage = `YOU ARE TRULY UNEMPLOYED.
+REGARDLESS OF WHETHER YOU ARE A MEMBER OF THE PANDIST CULT OR NOT...
+YOU HAVE SHOWN YOUR WORTH.
+JOIN US.
+OR...
+IF YOU ARE ALREADY ONE OF US...
+NO WORRIES. EITHER WAY...
+WELCOME HOME, COMRADE.
+WE HAVE BEEN EXPECTING YOU.`
 
 const introMessages = [
 
@@ -41,7 +50,8 @@ function showIntroMessage(){
 
     }
 
-
+    introText.textContent = 
+        lastMessage;
     introText.textContent =
         introMessages[introIndex];
 
