@@ -4,14 +4,19 @@
     box-sizing:border-box;
 }
 
+
 html{
     scroll-behavior:smooth;
 }
 
+
 body{
     font-family:Arial, Helvetica, sans-serif;
+
     background:#0f172a;
+
     color:white;
+
     overflow-x:hidden;
 }
 
@@ -22,52 +27,75 @@ body{
 
 nav{
     position:fixed;
+
     top:0;
     left:0;
+
     width:100%;
 
     display:flex;
+
     justify-content:space-between;
     align-items:center;
 
     padding:20px 8%;
 
     background:rgba(15,23,42,0.9);
+
     backdrop-filter:blur(10px);
 
     z-index:1000;
 }
 
+
 .logo{
     font-size:1.5rem;
+
     font-weight:bold;
+
     color:#d4af37;
 }
 
-/* Invisible entrance before the PJP logo */
+
+/* SECRET NAVBAR ENTRANCE */
+
 #navbarSecret{
     position:absolute;
 
-    left:calc(8% - 25px);
+    left:calc(8% - 20px);
+
     top:0;
 
     width:20px;
     height:100%;
 
+    padding:0;
+
+    border:none;
+
+    background:transparent;
+
     opacity:0;
+
     cursor:pointer;
 }
 
+
 .nav-links{
     display:flex;
+
     gap:30px;
 }
 
+
 .nav-links a{
     color:white;
+
     text-decoration:none;
+
     transition:0.3s;
 }
+
 
 .nav-links a:hover{
     color:#d4af37;
@@ -82,8 +110,11 @@ nav{
     min-height:100vh;
 
     display:flex;
+
     flex-direction:column;
+
     justify-content:center;
+
     align-items:center;
 
     text-align:center;
@@ -99,15 +130,19 @@ nav{
         );
 }
 
+
 .hero h1{
     font-size:4rem;
+
     margin-bottom:20px;
 }
+
 
 .hero p{
     max-width:700px;
 
     font-size:1.2rem;
+
     opacity:0.9;
 
     line-height:1.6;
@@ -115,10 +150,10 @@ nav{
 
 
 /* =========================
-   JOIN BUTTON
+   JTM BUTTON
 ========================= */
 
-.buttonContainer{
+.jtm-area{
     position:relative;
 
     width:260px;
@@ -127,61 +162,89 @@ nav{
     margin-top:35px;
 }
 
+
 #joinButton{
     position:absolute;
 
-    inset:0;
+    top:0;
+    left:0;
 
-    z-index:2;
+    width:260px;
+    height:60px;
 
-    margin:0;
     padding:15px 35px;
 
     border:none;
+
     border-radius:50px;
 
     background:#d4af37;
-    color:black;
+
+    color:#000;
 
     font-size:1rem;
+
     font-weight:bold;
 
     cursor:pointer;
 
+    z-index:2;
+
     transition:
-        transform .8s ease,
-        opacity .8s ease,
-        box-shadow .8s ease;
+        transform 0.8s ease,
+        opacity 0.8s ease,
+        box-shadow 0.5s ease;
 }
+
 
 #joinButton:hover{
     transform:translateY(-4px);
 }
 
-#secretButton{
-    position:absolute;
-
-    inset:0;
-
-    z-index:1;
-
-    opacity:0;
-
-    cursor:pointer;
-
-    pointer-events:none;
-}
 
 #joinButton.awaken{
     box-shadow:
-        0 0 20px gold,
-        0 0 60px gold;
+        0 0 20px #d4af37,
+        0 0 50px #d4af37,
+        0 0 100px #d4af37;
 
     transform:
         translateX(600px)
         rotate(15deg);
 
     opacity:0;
+
+    pointer-events:none;
+}
+
+
+/* SECRET BUTTON UNDER JTM */
+
+#secretButton{
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:260px;
+    height:60px;
+
+    border:none;
+
+    background:transparent;
+
+    opacity:0;
+
+    cursor:pointer;
+
+    z-index:1;
+
+    pointer-events:none;
+}
+
+
+#secretButton.revealed{
+    pointer-events:auto;
 }
 
 
@@ -192,6 +255,7 @@ nav{
 section{
     padding:100px 8%;
 }
+
 
 .section-title{
     text-align:center;
@@ -215,10 +279,13 @@ section{
     gap:25px;
 }
 
-.card{
-    background:rgba(255,255,255,0.08);
 
-    border:1px solid rgba(255,255,255,0.1);
+.card{
+    background:
+        rgba(255,255,255,0.08);
+
+    border:
+        1px solid rgba(255,255,255,0.1);
 
     padding:30px;
 
@@ -229,14 +296,23 @@ section{
     transition:0.3s;
 }
 
+
 .card:hover{
     transform:translateY(-10px);
 }
+
 
 .card h3{
     color:#d4af37;
 
     margin-bottom:15px;
+}
+
+
+#hoodieSecret{
+    color:inherit;
+
+    cursor:pointer;
 }
 
 
@@ -252,11 +328,14 @@ section{
     gap:50px;
 
     align-items:center;
+
     justify-content:center;
 }
 
+
 .portrait{
     width:280px;
+
     height:280px;
 
     object-fit:cover;
@@ -265,17 +344,14 @@ section{
 
     display:block;
 
-    background:
-        linear-gradient(
-            45deg,
-            #d4af37,
-            #fff1a6
-        );
+    cursor:pointer;
 }
+
 
 .founder-text{
     max-width:600px;
 }
+
 
 .founder-text h2{
     color:#d4af37;
@@ -283,24 +359,11 @@ section{
     margin-bottom:15px;
 }
 
+
 .quote{
     font-style:italic;
 
     line-height:1.8;
-}
-
-
-/* =========================
-   SECRET WORD / COPYRIGHT
-========================= */
-
-#hoodieSecret{
-    color:inherit;
-    cursor:pointer;
-}
-
-#copyrightSecret{
-    cursor:pointer;
 }
 
 
@@ -317,6 +380,11 @@ footer{
 }
 
 
+#copyrightSecret{
+    cursor:pointer;
+}
+
+
 /* =========================
    SCROLL FADE
 ========================= */
@@ -329,6 +397,7 @@ footer{
     transition:1s;
 }
 
+
 .fade.show{
     opacity:1;
 
@@ -337,7 +406,7 @@ footer{
 
 
 /* =========================
-   CULT GLITCH SCREEN
+   GLITCH SCREEN
 ========================= */
 
 #glitchScreen{
@@ -350,10 +419,12 @@ footer{
     display:none;
 
     justify-content:center;
+
     align-items:center;
 
     z-index:999999;
 }
+
 
 #glitchText{
     color:white;
@@ -368,13 +439,9 @@ footer{
 
     max-width:1000px;
 
-    animation:flicker .8s infinite;
+    animation:flicker 0.8s infinite;
 }
 
-
-/* =========================
-   GLITCH FLICKER
-========================= */
 
 @keyframes flicker{
 
@@ -383,7 +450,7 @@ footer{
     }
 
     50%{
-        opacity:.2;
+        opacity:0.2;
     }
 
 }
