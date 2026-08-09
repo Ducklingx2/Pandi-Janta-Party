@@ -140,32 +140,103 @@ function showMessage(message){
     const screen =
         document.getElementById("glitchScreen");
 
-
     const text =
         document.getElementById("glitchText");
 
 
-    text.textContent = message;
+    // ==========================================
+    // NORMAL ENTRANCES
+    // ==========================================
 
+    if(entrancesFound < 5){
+
+        screen.classList.remove("cultReveal");
+
+        text.textContent = message;
+
+        screen.style.display = "flex";
+
+
+        setTimeout(() => {
+
+            screen.style.display = "none";
+
+
+        }, 5000);
+
+
+        return;
+
+    }
+
+
+    // ==========================================
+    // FINAL ENTRANCE
+    // ==========================================
+
+    screen.classList.add("cultReveal");
 
     screen.style.display = "flex";
 
 
+    text.innerHTML = `
+
+        <div class="cultGlitch">
+
+            <div class="cultGlitchTitle">
+                PANDIST CULT
+            </div>
+
+
+            <div class="cultGlitchClassification">
+                CLASSIFICATION: RESTRICTED
+            </div>
+
+
+            <div class="cultGlitchLine"></div>
+
+
+            <div class="cultGlitchOptions">
+
+                <span>THE ORDER</span>
+
+                <span>THE FOUNDER</span>
+
+                <span>THE DOCTRINE</span>
+
+                <span>THE RITES</span>
+
+                <span>THE ARCHIVE</span>
+
+            </div>
+
+
+            <div class="cultGlitchMessage">
+
+                YOU HAVE CROSSED<br>
+                THE BARRIER.
+
+            </div>
+
+
+            <div class="cultGlitchWarning">
+
+                YOU HAVE BEEN EXPECTED.
+
+            </div>
+
+        </div>
+
+    `;
+
+
     setTimeout(() => {
 
-        screen.style.display = "none";
+        window.location.href = "cult/";
 
-
-        if(entrancesFound === 5){
-
-            window.location.href = "cult/";
-
-        }
-
-    },5000);
+    }, 6500);
 
 }
-
 
 
 // ==========================================
