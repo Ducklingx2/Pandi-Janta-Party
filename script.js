@@ -80,11 +80,24 @@ document.querySelectorAll(".fade").forEach(el => {
     observer.observe(el);
 });
 
-const joinButton = document.getElementById("joinButton");
-const navbarSecret = document.getElementById("navbarSecret");
-const portrait = document.getElementById("aaravPortrait");
-const copyrightSecret = document.getElementById("copyrightSecret");
-const hoodieSecret = document.getElementById("hoodieSecret");
+const joinButton =
+    document.getElementById("joinButton");
+
+const secretButton =
+    document.getElementById("secretButton");
+
+const navbarSecret =
+    document.getElementById("navbarSecret");
+
+const portrait =
+    document.getElementById("aaravPortrait");
+
+const copyrightSecret =
+    document.getElementById("copyrightSecret");
+
+const hoodieSecret =
+    document.getElementById("hoodieSecret");
+
 
 joinButton.addEventListener("click", () => {
 
@@ -92,13 +105,30 @@ joinButton.addEventListener("click", () => {
 
     discover("join");
 
+    setTimeout(() => {
+
+        secretButton.style.pointerEvents = "auto";
+
+    }, 800);
+
 });
-    
+
+
+secretButton.addEventListener("click", () => {
+
+    // This is NOT another entrance.
+    // It is just the hidden area left behind.
+    console.log("Hidden Join button clicked.");
+
+});
+
+
 navbarSecret.addEventListener("click", () => {
 
     discover("navbar");
 
 });
+
 
 portrait.addEventListener("click", () => {
 
@@ -106,23 +136,19 @@ portrait.addEventListener("click", () => {
 
 });
 
+
 copyrightSecret.addEventListener("click", () => {
 
     discover("copyright");
 
 });
 
+
 hoodieSecret.addEventListener("click", () => {
 
     discover("hoodies");
 
 });
-
-joinButton.addEventListener("click", () => {
-
-    joinButton.classList.add("awaken");
-
-    discover("join");
 
     setTimeout(() => {
         secretButton.style.pointerEvents = "auto";
