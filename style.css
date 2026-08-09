@@ -427,21 +427,26 @@ footer{
 
 
 #glitchText{
+
+    font-family:
+        "Courier New",
+        monospace;
+
     color:white;
 
     font-size:2rem;
+
+    letter-spacing:3px;
 
     text-align:center;
 
     white-space:pre-line;
 
-    padding:30px;
+    line-height:1.6;
 
-    max-width:1000px;
+    animation:flicker .8s infinite;
 
-    animation:flicker 0.8s infinite;
 }
-
 
 @keyframes flicker{
 
