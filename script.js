@@ -1,71 +1,160 @@
-let entrancesFound = 0; 
+// ==========================================
+// SCROLL FADE
+// ==========================================
+
+const observer = new IntersectionObserver(entries => {
+
+    entries.forEach(entry => {
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add("show");
+
+        }
+
+    });
+
+});
+
+
+document
+    .querySelectorAll(".fade")
+    .forEach(element => {
+
+        observer.observe(element);
+
+    });
+
+
+
+// ==========================================
+// SECRET ENTRANCES
+// ==========================================
+
 const messages = [
 
-    "YOU THINK YOU HAVE FOUND US...NOT YET.",
+    "YOU THINK YOU HAVE FOUND US... NOT YET.",
 
-    "HMMMMMMMM...WE SEE YOU.",
+    "HMMMMMMMM... WE SEE YOU.",
 
     "YOU MIGHT BE WORTHY. KEEP SEARCHING.",
 
     "ARE YOU ONE OF US? OR ARE YOU ONLY CURIOUS?",
 
     `YOU ARE TRULY UNEMPLOYED.
-    REGARDLESS OF WHETHER YOU ARE A MEMBER OF THE PANDIST CULT OR NOT...
-    YOU HAVE SHOWN YOUR WORTH.
-    JOIN US.
-    OR...
-    IF YOU ARE ALREADY ONE OF US...
-    NO WORRIES. EITHER WAY...
-    WELCOME HOME, COMRADE.
-    WE HAVE BEEN EXPECTING YOU.`
+REGARDLESS OF WHETHER YOU ARE A MEMBER OF THE PANDIST CULT OR NOT...
+YOU HAVE SHOWN YOUR WORTH.
+JOIN US.
+OR...
+IF YOU ARE ALREADY ONE OF US...
+NO WORRIES. EITHER WAY...
+WELCOME HOME, COMRADE.
+WE HAVE BEEN EXPECTING YOU.`
 
-];        
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if(entry.isIntersecting){
-            entry.target.classList.add("show");
-        }
-    });
-});
-    
+];
+
+
 const found = {
-    join: false,
-    navbar: false,
-    portrait: false,
-    copyright: false,
-    hoodies: false
+
+    join:false,
+
+    navbar:false,
+
+    portrait:false,
+
+    copyright:false,
+
+    hoodies:false
+
 };
+
+
+let entrancesFound = 0;
+
+
+
+// ==========================================
+// ELEMENTS
+// ==========================================
+
+const joinButton =
+    document.getElementById("joinButton");
+
+
+const secretButton =
+    document.getElementById("secretButton");
+
+
+const navbarSecret =
+    document.getElementById("navbarSecret");
+
+
+const portrait =
+    document.getElementById("aaravPortrait");
+
+
+const copyrightSecret =
+    document.getElementById("copyrightSecret");
+
+
+const hoodieSecret =
+    document.getElementById("hoodieSecret");
+
+
+
+// ==========================================
+// DISCOVER ENTRANCE
+// ==========================================
 
 function discover(trigger){
 
-    if(found[trigger]) return;
+    if(found[trigger]){
+
+        return;
+
+    }
+
 
     found[trigger] = true;
+
 
     const message =
         messages[entrancesFound];
 
+
     entrancesFound++;
+
 
     showMessage(message);
 
-};
+}
+
+
+
+// ==========================================
+// SHOW MESSAGE
+// ==========================================
 
 function showMessage(message){
 
     const screen =
         document.getElementById("glitchScreen");
 
+
     const text =
         document.getElementById("glitchText");
 
-    screen.style.display = "flex";
 
     text.textContent = message;
+
+
+    screen.style.display = "flex";
+
 
     setTimeout(() => {
 
         screen.style.display = "none";
+
 
         if(entrancesFound === 5){
 
@@ -75,53 +164,52 @@ function showMessage(message){
 
     },5000);
 
-};
-document.querySelectorAll(".fade").forEach(el => {
-    observer.observe(el);
-});
+}
 
-const joinButton =
-    document.getElementById("joinButton");
 
-const secretButton =
-    document.getElementById("secretButton");
 
-const navbarSecret =
-    document.getElementById("navbarSecret");
-
-const portrait =
-    document.getElementById("aaravPortrait");
-
-const copyrightSecret =
-    document.getElementById("copyrightSecret");
-
-const hoodieSecret =
-    document.getElementById("hoodieSecret");
-
+// ==========================================
+// ENTRANCE #1
+// JOIN THE MOVEMENT
+// ==========================================
 
 joinButton.addEventListener("click", () => {
 
+    console.log("JTM entrance discovered.");
+
+
     joinButton.classList.add("awaken");
+
 
     discover("join");
 
+
     setTimeout(() => {
 
-        secretButton.style.pointerEvents = "auto";
+        secretButton.classList.add("revealed");
 
-    }, 800);
+    },800);
 
 });
 
+
+
+// ==========================================
+// SECRET AREA UNDER JTM
+// ==========================================
 
 secretButton.addEventListener("click", () => {
 
-    // This is NOT another entrance.
-    // It is just the hidden area left behind.
-    console.log("Hidden Join button clicked.");
+    console.log("Hidden JTM area clicked.");
 
 });
 
+
+
+// ==========================================
+// ENTRANCE #2
+// NAVBAR
+// ==========================================
 
 navbarSecret.addEventListener("click", () => {
 
@@ -130,26 +218,40 @@ navbarSecret.addEventListener("click", () => {
 });
 
 
-//portrait.addEventListener("click", () => {
 
-    //discover("portrait");
+// ==========================================
+// ENTRANCE #3
+// PORTRAIT
+// ==========================================
 
-//});
+portrait.addEventListener("click", () => {
+
+    discover("portrait");
+
+});
 
 
-//copyrightSecret.addEventListener("click", () => {
 
-    //discover("copyright");
+// ==========================================
+// ENTRANCE #4
+// COPYRIGHT
+// ==========================================
 
-//});
+copyrightSecret.addEventListener("click", () => {
+
+    discover("copyright");
+
+});
 
 
-//hoodieSecret.addEventListener("click", () => {
 
-    //discover("hoodies");
+// ==========================================
+// ENTRANCE #5
+// HOODIE
+// ==========================================
 
-//});
+hoodieSecret.addEventListener("click", () => {
 
-    setTimeout(() => {
-        secretButton.style.pointerEvents = "auto";
-    }, 800); 
+    discover("hoodies");
+
+});
