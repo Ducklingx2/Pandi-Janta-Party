@@ -454,3 +454,250 @@ footer{
     }
 
 }
+
+#glitchScreen.cultReveal{
+
+    background:#050505;
+
+    animation:cultScreenFlicker 0.15s infinite;
+
+}
+
+
+.cultGlitch{
+
+    width:min(800px, 90vw);
+
+    padding:50px;
+
+    border:1px solid #292929;
+
+    background:#080808;
+
+    text-align:left;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    box-shadow:
+        0 0 80px rgba(0,0,0,.9);
+
+    animation:
+        cultAppear 1s ease forwards;
+
+}
+
+
+.cultGlitchTitle{
+
+    font-size:clamp(
+        2rem,
+        6vw,
+        4rem
+    );
+
+    font-weight:bold;
+
+    letter-spacing:8px;
+
+    color:white;
+
+}
+
+
+.cultGlitchClassification{
+
+    margin-top:10px;
+
+    font-size:10px;
+
+    letter-spacing:4px;
+
+    color:#8f0000;
+
+}
+
+
+.cultGlitchLine{
+
+    height:1px;
+
+    width:100%;
+
+    background:#292929;
+
+    margin:30px 0;
+
+}
+
+
+.cultGlitchOptions{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:12px;
+
+    color:#777;
+
+    font-size:10px;
+
+    letter-spacing:2px;
+
+}
+
+
+.cultGlitchOptions span{
+
+    padding:12px;
+
+    border:1px solid #181818;
+
+    background:#050505;
+
+}
+
+
+.cultGlitchMessage{
+
+    margin-top:45px;
+
+    font-size:clamp(
+        1.3rem,
+        4vw,
+        2.5rem
+    );
+
+    line-height:1.4;
+
+    letter-spacing:4px;
+
+}
+
+
+.cultGlitchWarning{
+
+    margin-top:35px;
+
+    color:#8f0000;
+
+    font-size:10px;
+
+    letter-spacing:4px;
+
+    animation:
+        warningFlicker 1.2s infinite;
+
+}
+
+
+@keyframes cultAppear{
+
+    0%{
+
+        opacity:0;
+
+        transform:
+            scale(.97)
+            translateY(10px);
+
+        filter:
+            blur(8px);
+
+    }
+
+    60%{
+
+        opacity:1;
+
+        transform:
+            scale(1)
+            translateY(0);
+
+        filter:blur(0);
+
+    }
+
+    70%{
+
+        transform:
+            translateX(-4px);
+
+    }
+
+    75%{
+
+        transform:
+            translateX(4px);
+
+    }
+
+    80%{
+
+        transform:
+            translateX(0);
+
+    }
+
+    100%{
+
+        opacity:1;
+
+    }
+
+}
+
+
+@keyframes warningFlicker{
+
+    0%,100%{
+
+        opacity:1;
+
+    }
+
+    45%{
+
+        opacity:.3;
+
+    }
+
+    50%{
+
+        opacity:1;
+
+    }
+
+    52%{
+
+        opacity:.1;
+
+    }
+
+    55%{
+
+        opacity:1;
+
+    }
+
+}
+
+
+@keyframes cultScreenFlicker{
+
+    0%,100%{
+
+        opacity:1;
+
+    }
+
+    50%{
+
+        opacity:.98;
+
+    }
+
+}
