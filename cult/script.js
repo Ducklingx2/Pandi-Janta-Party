@@ -2,6 +2,9 @@
 // INTRO SEQUENCE
 // ==========================================
 
+const ominousSound =
+    document.getElementById("ominousSound");
+
 const introScreen =
     document.getElementById("introScreen");
 
@@ -103,14 +106,18 @@ function finishIntro(){
     introText.textContent =
         lastMessage;
 
-
     introText.style.opacity = "1";
 
+    ominousSound.currentTime = 0;
+    ominousSound.volume = 0.35;
+
+    ominousSound.play().catch(() => {
+        // Browser may block audio until user interaction.
+    });
 
     setTimeout(() => {
 
         introScreen.style.opacity = "0";
-
 
         setTimeout(() => {
 
