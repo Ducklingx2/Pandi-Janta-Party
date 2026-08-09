@@ -287,8 +287,12 @@ footer{
 }
 
 #navbarSecret{
-    width:40px;
-    height:40px;
+    position:absolute;
+    left:calc(8% - 25px);
+    top:0;
+    width:20px;
+    height:100%;
+
+    opacity:0;
     cursor:pointer;
-    flex-shrink:0;
-}  
+}
