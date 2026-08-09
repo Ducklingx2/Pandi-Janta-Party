@@ -130,25 +130,25 @@ navbarSecret.addEventListener("click", () => {
 });
 
 
-portrait.addEventListener("click", () => {
+//portrait.addEventListener("click", () => {
 
-    discover("portrait");
+    //discover("portrait");
 
-});
-
-
-copyrightSecret.addEventListener("click", () => {
-
-    discover("copyright");
-
-});
+//});
 
 
-hoodieSecret.addEventListener("click", () => {
+//copyrightSecret.addEventListener("click", () => {
 
-    discover("hoodies");
+    //discover("copyright");
 
-});
+//});
+
+
+//hoodieSecret.addEventListener("click", () => {
+
+    //discover("hoodies");
+
+//});
 
     setTimeout(() => {
         secretButton.style.pointerEvents = "auto";
