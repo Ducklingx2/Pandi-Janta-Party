@@ -444,18 +444,77 @@ footer{
 
     line-height:1.6;
 
-    animation:flicker .8s infinite;
+    animation:flicker 3.7s infinite;
 
 }
 
 @keyframes flicker{
 
-    0%,100%{
+    0%{
+        filter:invert(0);
         opacity:1;
     }
 
-    50%{
-        opacity:0.2;
+    12%{
+        filter:invert(0);
+        opacity:1;
+    }
+
+    13%{
+        filter:invert(1);
+        opacity:.8;
+    }
+
+    14%{
+        filter:invert(0);
+        opacity:1;
+    }
+
+    31%{
+        filter:invert(0);
+    }
+
+    32%{
+        filter:invert(1);
+        opacity:.4;
+    }
+
+    33%{
+        filter:invert(0);
+        opacity:1;
+    }
+
+    56%{
+        filter:invert(0);
+    }
+
+    58%{
+        filter:invert(1);
+        opacity:.7;
+    }
+
+    59%{
+        filter:invert(0);
+    }
+
+    76%{
+        filter:invert(0);
+        opacity:1;
+    }
+
+    77%{
+        filter:invert(1);
+        opacity:.2;
+    }
+
+    78%{
+        filter:invert(0);
+        opacity:1;
+    }
+
+    100%{
+        filter:invert(0);
+        opacity:1;
     }
 
 }
@@ -463,8 +522,6 @@ footer{
 #glitchScreen.cultReveal{
 
     background:#050505;
-
-    animation:cultScreenFlicker 0.15s infinite;
 
 }
 
@@ -685,23 +742,6 @@ footer{
     55%{
 
         opacity:1;
-
-    }
-
-}
-
-
-@keyframes cultScreenFlicker{
-
-    0%,100%{
-
-        opacity:1;
-
-    }
-
-    50%{
-
-        opacity:.98;
 
     }
 
