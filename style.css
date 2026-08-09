@@ -201,18 +201,6 @@ footer{
     pointer-events:none;
 }
 
-.btn{
-    position:absolute;
-    inset:0;
-
-    z-index:2;
-
-    transition:
-        transform .8s ease,
-        opacity .8s ease,
-        box-shadow .6s ease;
-}
-
 .btn.awaken{
 
     box-shadow:
@@ -286,13 +274,17 @@ footer{
 }
 
 .cultButton{
-    position:relative;
+    position:absolute;
+    inset:0;
     z-index:2;
+
+    margin:0;
+
     transition:
         transform .8s ease,
         opacity .8s ease,
         box-shadow .8s ease;
-}  
+}
 
 #navbarSecret{
     width:40px;
