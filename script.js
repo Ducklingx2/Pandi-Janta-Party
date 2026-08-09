@@ -153,4 +153,3 @@ hoodieSecret.addEventListener("click", () => {
     setTimeout(() => {
         secretButton.style.pointerEvents = "auto";
     }, 800); 
-});
