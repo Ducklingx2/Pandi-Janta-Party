@@ -19,15 +19,15 @@ const cultInterface =
 // FINAL MESSAGE FROM THE FIVE ENTRANCES
 // ==========================================
 
-const lastMessage = `YOU ARE TRULY UNEMPLOYED.
-REGARDLESS OF WHETHER YOU ARE A MEMBER OF THE PANDIST CULT OR NOT...
-YOU HAVE SHOWN YOUR WORTH.
-JOIN US.
-OR...
-IF YOU ARE ALREADY ONE OF US...
-NO WORRIES. EITHER WAY...
-WELCOME HOME, COMRADE.
-WE HAVE BEEN EXPECTING YOU.`;
+const lastMessage = "YOU ARE TRULY UNEMPLOYED."
+                    "REGARDLESS OF WHETHER YOU ARE A MEMBER OF THE PANDIST CULT OR NOT...";
+                    "YOU HAVE SHOWN YOUR WORTH.";
+                    "JOIN US.";
+                    "OR...";
+                    "IF YOU ARE ALREADY ONE OF US...";
+                    "NO WORRIES. EITHER WAY...";
+                    "WELCOME HOME, COMRADE.";
+                    "WE HAVE BEEN EXPECTING YOU.";
 
 
 // ==========================================
@@ -103,34 +103,65 @@ function showIntroMessage(){
 
 function finishIntro(){
 
-    introText.textContent =
-        lastMessage;
+    const lines = lastMessage
+        .split("\n")
+        .map(line => line.trim())
+        .filter(line => line.length > 0);
+
+    let lineIndex = 0;
 
     introText.style.opacity = "1";
+    introText.textContent = "";
 
-    ominousSound.currentTime = 0;
-    ominousSound.volume = 0.35;
+    function showNextLine(){
 
-    ominousSound.play().catch(() => {
-        // Browser may block audio until user interaction.
-    });
+        if(lineIndex >= lines.length){
 
-    setTimeout(() => {
+            setTimeout(() => {
 
-        introScreen.style.opacity = "0";
+                introScreen.style.opacity = "0";
+
+                setTimeout(() => {
+
+                    introScreen.style.display = "none";
+
+                    window.location.href = "cult/";
+
+                },1500);
+
+            },2000);
+
+            return;
+        }
+
+
+        introText.style.opacity = "0";
+
 
         setTimeout(() => {
 
-            introScreen.style.display = "none";
+            introText.textContent =
+                lines[lineIndex];
 
-            cultInterface.classList.add("visible");
+            introText.style.opacity = "1";
 
-        },1000);
+            lineIndex++;
 
-    },10000);
+        },300);
+
+
+        setTimeout(() => {
+
+            showNextLine();
+
+        },1500);
+
+    }
+
+
+    showNextLine();
 
 }
-
 
 // ==========================================
 // START INTRO
