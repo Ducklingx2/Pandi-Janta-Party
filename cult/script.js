@@ -38,11 +38,7 @@ const introMessages = [
 
     "BARRIER BREACHED.",
 
-    "IDENTITY: UNKNOWN",
-
     "NETWORK CONNECTION ESTABLISHED.",
-
-    "YOU HAVE ENTERED PANDIST TERRITORY."
 
 ];
 
@@ -125,9 +121,7 @@ function finishIntro(){
 
                     introScreen.style.display = "none";
 
-                    window.location.href = "cult/";
-
-                },1500);
+              },1500);
 
             },2000);
 
