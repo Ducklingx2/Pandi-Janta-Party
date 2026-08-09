@@ -1,3 +1,12 @@
+const entranceSounds = [
+
+    document.getElementById("entranceSound1"),
+    document.getElementById("entranceSound2"),
+    document.getElementById("entranceSound3"),
+    document.getElementById("entranceSound4")
+];
+
+
 // ==========================================
 // SCROLL FADE
 // ==========================================
@@ -98,27 +107,29 @@ const hoodieSecret =
 
 function discover(trigger){
 
-    if(found[trigger]){
-
-        return;
-
-    }
-
+    if(found[trigger]) return;
 
     found[trigger] = true;
 
+    const sound =
+        entranceSounds[
+            Math.floor(
+                Math.random() * entranceSounds.length
+            )
+        ];
+
+    sound.currentTime = 0;
+    sound.volume = 0.45;
+
+    sound.play().catch(() => {});
 
     const message =
         messages[entrancesFound];
 
-
     entrancesFound++;
 
-
     showMessage(message);
-
 }
-
 
 
 // ==========================================
@@ -168,63 +179,11 @@ function showMessage(message){
 
     screen.style.display = "flex";
 
-
-    text.innerHTML = `
-
-        <div class="cultGlitch">
-
-            <div class="cultGlitchTitle">
-                PANDIST CULT
-            </div>
-
-
-            <div class="cultGlitchClassification">
-                CLASSIFICATION: RESTRICTED
-            </div>
-
-
-            <div class="cultGlitchLine"></div>
-
-
-            <div class="cultGlitchOptions">
-
-                <span>THE ORDER</span>
-
-                <span>THE FOUNDER</span>
-
-                <span>THE DOCTRINE</span>
-
-                <span>THE RITES</span>
-
-                <span>THE ARCHIVE</span>
-
-            </div>
-
-
-            <div class="cultGlitchMessage">
-
-                YOU HAVE CROSSED<br>
-                THE BARRIER.
-
-            </div>
-
-
-            <div class="cultGlitchWarning">
-
-                YOU HAVE BEEN EXPECTED.
-
-            </div>
-
-        </div>
-
-    `;
-
-
     setTimeout(() => {
 
         window.location.href = "cult/";
 
-    }, 6500);
+    }, 500);
 
 }
 
