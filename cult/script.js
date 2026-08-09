@@ -11,6 +11,11 @@ const introText =
 const cultInterface =
     document.getElementById("cultInterface");
 
+
+// ==========================================
+// FINAL MESSAGE FROM THE FIVE ENTRANCES
+// ==========================================
+
 const lastMessage = `YOU ARE TRULY UNEMPLOYED.
 REGARDLESS OF WHETHER YOU ARE A MEMBER OF THE PANDIST CULT OR NOT...
 YOU HAVE SHOWN YOUR WORTH.
@@ -19,15 +24,18 @@ OR...
 IF YOU ARE ALREADY ONE OF US...
 NO WORRIES. EITHER WAY...
 WELCOME HOME, COMRADE.
-WE HAVE BEEN EXPECTING YOU.`
+WE HAVE BEEN EXPECTING YOU.`;
+
+
+// ==========================================
+// CULT INTRO
+// ==========================================
 
 const introMessages = [
 
     "BARRIER BREACHED.",
 
     "IDENTITY: UNKNOWN",
-
-    "CURSED ENERGY: DETECTED",
 
     "NETWORK CONNECTION ESTABLISHED.",
 
@@ -39,6 +47,9 @@ const introMessages = [
 let introIndex = 0;
 
 
+// ==========================================
+// SHOW INTRO MESSAGE
+// ==========================================
 
 function showIntroMessage(){
 
@@ -50,8 +61,7 @@ function showIntroMessage(){
 
     }
 
-    introText.textContent = 
-        lastMessage;
+
     introText.textContent =
         introMessages[introIndex];
 
@@ -84,11 +94,14 @@ function showIntroMessage(){
 }
 
 
+// ==========================================
+// FINISH INTRO
+// ==========================================
 
 function finishIntro(){
 
     introText.textContent =
-        "WELCOME HOME, COMRADE.";
+        lastMessage;
 
 
     introText.style.opacity = "1";
@@ -107,22 +120,23 @@ function finishIntro(){
 
         },1000);
 
-    },1800);
+    },5000);
 
 }
 
 
+// ==========================================
+// START INTRO
+// ==========================================
 
 introScreen.style.transition =
     "opacity 1s ease";
-
 
 introText.style.transition =
     "opacity .4s ease";
 
 
 showIntroMessage();
-
 
 
 // ==========================================
@@ -132,19 +146,19 @@ showIntroMessage();
 const navButtons =
     document.querySelectorAll(".navButton");
 
-
 const archiveCards =
     document.querySelectorAll(".archiveCard");
 
-
 const pages =
     document.querySelectorAll(".page");
-
 
 const pageTitle =
     document.getElementById("pageTitle");
 
 
+// ==========================================
+// OPEN PAGE
+// ==========================================
 
 function openPage(pageID){
 
@@ -206,7 +220,6 @@ function openPage(pageID){
 }
 
 
-
 // ==========================================
 // SIDEBAR BUTTONS
 // ==========================================
@@ -223,7 +236,6 @@ navButtons.forEach(button => {
     });
 
 });
-
 
 
 // ==========================================
