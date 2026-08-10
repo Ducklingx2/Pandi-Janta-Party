@@ -111,11 +111,11 @@ function discover(trigger){
 
     found[trigger] = true;
 
+
+    // Sound is based on discovery order
     const sound =
         entranceSounds[
-            Math.floor(
-                Math.random() * entranceSounds.length
-            )
+            entrancesFound % entranceSounds.length
         ];
 
     sound.currentTime = 0;
@@ -123,12 +123,15 @@ function discover(trigger){
 
     sound.play().catch(() => {});
 
+
+    // Message is also based on discovery order
     const message =
         messages[entrancesFound];
 
     entrancesFound++;
 
     showMessage(message);
+
 }
 
 
