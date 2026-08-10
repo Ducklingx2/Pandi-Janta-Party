@@ -220,33 +220,54 @@ nav{
 
 /* SECRET BUTTON UNDER JTM */
 
-#secretButton{
-    position:absolute;
-
-    top:0;
-    left:0;
-
-    width:260px;
-    height:60px;
-
-    border:none;
-
-    background:transparent;
-
-    opacity:0;
-
-    cursor:pointer;
-
-    z-index:1;
-
-    pointer-events:none;
+.buttonContainer {
+    position: relative;
+    width: 260px;
+    height: 60px;
+    margin-top: 35px;
 }
 
+.cultButton {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
 
-#secretButton.revealed{
-    pointer-events:auto;
+    margin-top: 0;
+
+    transition:
+        transform 0.8s ease,
+        opacity 0.8s ease,
+        box-shadow 0.8s ease;
 }
 
+#secretButton {
+    position: absolute;
+    inset: 0;
+
+    z-index: 1;
+
+    opacity: 0;
+
+    cursor: pointer;
+
+    pointer-events: none;
+}
+
+#secretButton.active {
+    pointer-events: auto;
+}
+
+.cultButton.awaken {
+    transform:
+        translateX(600px)
+        rotate(15deg);
+
+    opacity: 0;
+
+    box-shadow:
+        0 0 20px gold,
+        0 0 60px gold;
+}
 
 /* =========================
    SECTIONS
