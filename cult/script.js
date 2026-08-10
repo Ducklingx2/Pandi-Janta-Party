@@ -58,7 +58,7 @@ let introIndex = 0;
 
 
 // ==========================================
-// INTRO SOUND
+// SOUND
 // ==========================================
 
 if (ominousSound) {
@@ -138,7 +138,7 @@ function finishIntro() {
 
                     cultInterface.classList.add("visible");
 
-                }, 1500);
+                }, 1000);
 
             }, 2000);
 
@@ -187,14 +187,14 @@ introText.style.transition =
     "opacity .4s ease";
 
 
-// Try starting the sound immediately
+// Start ambience
 
 if (ominousSound) {
 
     ominousSound.play().catch(() => {
 
         console.log(
-            "Autoplay blocked. Waiting for interaction."
+            "Autoplay blocked. Sound will start after interaction."
         );
 
     });
@@ -202,12 +202,7 @@ if (ominousSound) {
 }
 
 
-showIntroMessage();
-
-
-// ==========================================
-// FALLBACK AUDIO START
-// ==========================================
+// Fallback for browser autoplay restrictions
 
 document.addEventListener("click", () => {
 
@@ -220,6 +215,9 @@ document.addEventListener("click", () => {
     }
 
 }, { once: true });
+
+
+showIntroMessage();
 
 
 // ==========================================
