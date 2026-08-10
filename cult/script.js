@@ -19,15 +19,27 @@ const cultInterface =
 // FINAL MESSAGE FROM THE FIVE ENTRANCES
 // ==========================================
 
-const     introMessages = "YOU ARE TRULY UNEMPLOYED.",
-                    "REGARDLESS OF WHETHER YOU ARE A MEMBER OF THE PANDIST CULT OR NOT...",
-                    "YOU HAVE SHOWN YOUR WORTH.",
-                    "JOIN US.",
-                    "OR...",
-                    "IF YOU ARE ALREADY ONE OF US...",
-                    "NO WORRIES. EITHER WAY...",
-                    "WELCOME HOME, COMRADE.",
-                    "WE HAVE BEEN EXPECTING YOU."
+const introMessages = [
+
+    "YOU ARE TRULY UNEMPLOYED.",
+
+    "REGARDLESS OF WHETHER YOU ARE A MEMBER OF THE PANDIST CULT OR NOT...",
+
+    "YOU HAVE SHOWN YOUR WORTH.",
+
+    "JOIN US.",
+
+    "OR...",
+
+    "IF YOU ARE ALREADY ONE OF US...",
+
+    "NO WORRIES. EITHER WAY...",
+
+    "WELCOME HOME, COMRADE.",
+
+    "WE HAVE BEEN EXPECTING YOU."
+
+];
 
 
 // ==========================================
@@ -42,17 +54,27 @@ const endMessages = [
 
 ];
 
-
 let introIndex = 0;
+
+
+// ==========================================
+// INTRO SOUND
+// ==========================================
+
+if (ominousSound) {
+
+    ominousSound.volume = 0.35;
+
+}
 
 
 // ==========================================
 // SHOW INTRO MESSAGE
 // ==========================================
 
-function showIntroMessage(){
+function showIntroMessage() {
 
-    if(introIndex >= introMessages.length){
+    if (introIndex >= introMessages.length) {
 
         finishIntro();
 
@@ -61,25 +83,24 @@ function showIntroMessage(){
     }
 
 
-    introText.textContent =
-        introMessages[introIndex];
-
-
     introText.style.opacity = "0";
 
 
     setTimeout(() => {
 
+        introText.textContent =
+            introMessages[introIndex];
+
         introText.style.opacity = "1";
 
-    },100);
+    }, 300);
 
 
     setTimeout(() => {
 
         introText.style.opacity = "0";
 
-    },1500);
+    }, 1700);
 
 
     setTimeout(() => {
@@ -88,7 +109,7 @@ function showIntroMessage(){
 
         showIntroMessage();
 
-    },2000);
+    }, 2200);
 
 }
 
@@ -97,35 +118,32 @@ function showIntroMessage(){
 // FINISH INTRO
 // ==========================================
 
-function finishIntro(){
-
-    const lines = endMessages
-        .split("\n")
-        .map(line => line.trim())
-        .filter(line => line.length > 0);
+function finishIntro() {
 
     let lineIndex = 0;
 
-    introText.style.opacity = "1";
-    introText.textContent = "";
 
-    function showNextLine(){
+    function showNextLine() {
 
-        if(lineIndex >= lines.length){
+        if (lineIndex >= endMessages.length) {
 
             setTimeout(() => {
 
                 introScreen.style.opacity = "0";
 
+
                 setTimeout(() => {
 
                     introScreen.style.display = "none";
 
-              },1500);
+                    cultInterface.classList.add("visible");
 
-            },2000);
+                }, 1500);
+
+            }, 2000);
 
             return;
+
         }
 
 
@@ -135,20 +153,20 @@ function finishIntro(){
         setTimeout(() => {
 
             introText.textContent =
-                lines[lineIndex];
+                endMessages[lineIndex];
 
             introText.style.opacity = "1";
 
             lineIndex++;
 
-        },300);
+        }, 300);
 
 
         setTimeout(() => {
 
             showNextLine();
 
-        },1500);
+        }, 1800);
 
     }
 
@@ -156,6 +174,7 @@ function finishIntro(){
     showNextLine();
 
 }
+
 
 // ==========================================
 // START INTRO
@@ -168,7 +187,39 @@ introText.style.transition =
     "opacity .4s ease";
 
 
+// Try starting the sound immediately
+
+if (ominousSound) {
+
+    ominousSound.play().catch(() => {
+
+        console.log(
+            "Autoplay blocked. Waiting for interaction."
+        );
+
+    });
+
+}
+
+
 showIntroMessage();
+
+
+// ==========================================
+// FALLBACK AUDIO START
+// ==========================================
+
+document.addEventListener("click", () => {
+
+    if (!ominousSound) return;
+
+    if (ominousSound.paused) {
+
+        ominousSound.play().catch(() => {});
+
+    }
+
+}, { once: true });
 
 
 // ==========================================
@@ -192,7 +243,7 @@ const pageTitle =
 // OPEN PAGE
 // ==========================================
 
-function openPage(pageID){
+function openPage(pageID) {
 
     pages.forEach(page => {
 
@@ -212,7 +263,7 @@ function openPage(pageID){
         document.getElementById(pageID);
 
 
-    if(!target){
+    if (!target) {
 
         return;
 
@@ -228,24 +279,28 @@ function openPage(pageID){
         );
 
 
-    if(matchingButton){
+    if (matchingButton) {
 
         matchingButton.classList.add("active");
 
     }
 
 
-    pageTitle.textContent =
-        pageID
-            .replace("-", " ")
-            .toUpperCase();
+    if (pageTitle) {
+
+        pageTitle.textContent =
+            pageID
+                .replace("-", " ")
+                .toUpperCase();
+
+    }
 
 
     window.scrollTo({
 
-        top:0,
+        top: 0,
 
-        behavior:"smooth"
+        behavior: "smooth"
 
     });
 
