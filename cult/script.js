@@ -19,7 +19,7 @@ const cultInterface =
 // FINAL MESSAGE FROM THE FIVE ENTRANCES
 // ==========================================
 
-const lastMessage = "YOU ARE TRULY UNEMPLOYED."
+const     introMessages = "YOU ARE TRULY UNEMPLOYED."
                     "REGARDLESS OF WHETHER YOU ARE A MEMBER OF THE PANDIST CULT OR NOT...";
                     "YOU HAVE SHOWN YOUR WORTH.";
                     "JOIN US.";
@@ -34,7 +34,7 @@ const lastMessage = "YOU ARE TRULY UNEMPLOYED."
 // CULT INTRO
 // ==========================================
 
-const introMessages = [
+const endMessages = [
 
     "BARRIER BREACHED.",
 
@@ -99,7 +99,7 @@ function showIntroMessage(){
 
 function finishIntro(){
 
-    const lines = lastMessage
+    const lines = endMessages
         .split("\n")
         .map(line => line.trim())
         .filter(line => line.length > 0);
