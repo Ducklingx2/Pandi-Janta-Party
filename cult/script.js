@@ -34,7 +34,7 @@ INTRO MESSAGES
 
 const introMessages = [
 
-```
+
 "BARRIER BREACHED.",
 
 "NETWORK CONNECTION ESTABLISHED.",
@@ -44,7 +44,7 @@ const introMessages = [
 "CURSED ENERGY: DETECTED",
 
 "YOU HAVE ENTERED PANDIST TERRITORY."
-```
+
 
 ];
 
@@ -56,7 +56,6 @@ FINAL MESSAGE
 
 const endMessages = [
 
-```
 "YOU ARE TRULY UNEMPLOYED.",
 
 "REGARDLESS OF WHETHER YOU ARE A MEMBER OF THE PANDIST CULT OR NOT...",
@@ -74,55 +73,52 @@ const endMessages = [
 "WELCOME HOME, COMRADE.",
 
 "WE HAVE BEEN EXPECTING YOU."
-```
 
 ];
 
-/* ==========================================
-INTRO MESSAGE SYSTEM
-========================================== */
-
 function showIntroMessage() {
 
-```
-if (introIndex >= introMessages.length) {
+    if (introIndex >= introMessages.length) {
 
-    finishIntro();
+        setTimeout(() => {
 
-    return;
+            finishIntro();
 
-}
+        }, 3000);
 
+        return;
 
-introText.textContent =
-    introMessages[introIndex];
-
-
-introText.style.opacity = "0";
+    }
 
 
-setTimeout(() => {
+    introText.textContent =
+        introMessages[introIndex];
 
-    introText.style.opacity = "1";
-
-}, 100);
-
-
-setTimeout(() => {
 
     introText.style.opacity = "0";
 
-}, 1500);
+
+    setTimeout(() => {
+
+        introText.style.opacity = "1";
+
+    }, 100);
 
 
-setTimeout(() => {
+    setTimeout(() => {
 
-    introIndex++;
+        introText.style.opacity = "0";
 
-    showIntroMessage();
+    }, 1500);
 
-}, 2000);
-```
+
+    setTimeout(() => {
+
+        introIndex++;
+
+        showIntroMessage();
+
+    }, 2000);
 
 }
 
@@ -132,7 +128,6 @@ FINISH INTRO
 
 function finishIntro() {
 
-```
 let lineIndex = 0;
 
 
@@ -197,7 +192,6 @@ function showNextLine() {
 
 
 showNextLine();
-```
 
 }
 
@@ -223,7 +217,6 @@ Browsers may block autoplay.
 
 if (ominousSound) {
 
-```
 ominousSound.currentTime = 0;
 
 ominousSound.play().catch(() => {
@@ -233,7 +226,6 @@ ominousSound.play().catch(() => {
     );
 
 });
-```
 
 }
 
@@ -261,7 +253,6 @@ OPEN PAGE
 
 function openPage(pageID) {
 
-```
 pages.forEach(page => {
 
     page.classList.remove(
@@ -341,7 +332,6 @@ if (pageID === "comms") {
     loadMessages();
 
 }
-```
 
 }
 
@@ -351,7 +341,6 @@ SIDEBAR BUTTONS
 
 navButtons.forEach(button => {
 
-```
 button.addEventListener(
     "click",
     () => {
@@ -387,7 +376,6 @@ card.addEventListener(
 
     }
 );
-```
 
 });
 
@@ -413,7 +401,6 @@ LOAD MESSAGES
 
 async function loadMessages() {
 
-```
 if (!messagesContainer) {
 
     return;
@@ -494,7 +481,6 @@ try {
     `;
 
 }
-```
 
 }
 
@@ -504,7 +490,6 @@ DISPLAY MESSAGE
 
 function displayMessage(message) {
 
-```
 const element =
     document.createElement("div");
 
@@ -561,7 +546,6 @@ element.appendChild(time);
 messagesContainer.appendChild(
     element
 );
-```
 
 }
 
@@ -571,7 +555,6 @@ SEND MESSAGE
 
 if (messageForm) {
 
-```
 messageForm.addEventListener(
     "submit",
     async event => {
@@ -700,7 +683,6 @@ messageForm.addEventListener(
 
     }
 );
-```
 
 }
 
@@ -710,7 +692,6 @@ SCROLL MESSAGES
 
 function scrollMessagesToBottom() {
 
-```
 if (!messagesContainer) {
 
     return;
@@ -720,7 +701,6 @@ if (!messagesContainer) {
 
 messagesContainer.scrollTop =
     messagesContainer.scrollHeight;
-```
 
 }
 
