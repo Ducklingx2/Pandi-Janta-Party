@@ -1,82 +1,169 @@
-// ==========================================
-// INTRO SEQUENCE
-// ==========================================
+/* ==========================================
+PANDIST CULT
+MAIN SCRIPT
+========================================== */
+
+/* ==========================================
+RAILWAY API
+========================================== */
+
+// CHANGE THIS TO RAILWAY BACKEND URL
+
+const API_URL =
+"https://thorough-commitment.up.railway.app";
+
+/* ==========================================
+INTRO ELEMENTS
+========================================== */
 
 const ominousSound =
-    document.getElementById("ominousSound");
+document.getElementById("ominousSound");
 
 const introScreen =
-    document.getElementById("introScreen");
+document.getElementById("introScreen");
 
 const introText =
-    document.getElementById("introText");
+document.getElementById("introText");
 
 const cultInterface =
-    document.getElementById("cultInterface");
+document.getElementById("cultInterface");
 
-
-// ==========================================
-// FINAL MESSAGE FROM THE FIVE ENTRANCES
-// ==========================================
+/* ==========================================
+INTRO MESSAGES
+========================================== */
 
 const introMessages = [
 
-    "YOU ARE TRULY UNEMPLOYED.",
+```
+"BARRIER BREACHED.",
 
-    "REGARDLESS OF WHETHER YOU ARE A MEMBER OF THE PANDIST CULT OR NOT...",
+"NETWORK CONNECTION ESTABLISHED.",
 
-    "YOU HAVE SHOWN YOUR WORTH.",
+"IDENTITY: UNKNOWN",
 
-    "JOIN US.",
+"CURSED ENERGY: DETECTED",
 
-    "OR...",
-
-    "IF YOU ARE ALREADY ONE OF US...",
-
-    "NO WORRIES. EITHER WAY...",
-
-    "WELCOME HOME, COMRADE.",
-
-    "WE HAVE BEEN EXPECTING YOU."
-
-];
-
-
-// ==========================================
-// CULT INTRO
-// ==========================================
-
-const endMessages = [
-
-    "BARRIER BREACHED.",
-
-    "NETWORK CONNECTION ESTABLISHED."
+"YOU HAVE ENTERED PANDIST TERRITORY."
+```
 
 ];
 
 let introIndex = 0;
 
+/* ==========================================
+FINAL MESSAGE
+========================================== */
 
-// ==========================================
-// SOUND
-// ==========================================
+const endMessages = [
 
-if (ominousSound) {
+```
+"YOU ARE TRULY UNEMPLOYED.",
 
-    ominousSound.volume = 0.35;
+"REGARDLESS OF WHETHER YOU ARE A MEMBER OF THE PANDIST CULT OR NOT...",
+
+"YOU HAVE SHOWN YOUR WORTH.",
+
+"JOIN US.",
+
+"OR...",
+
+"IF YOU ARE ALREADY ONE OF US...",
+
+"NO WORRIES. EITHER WAY...",
+
+"WELCOME HOME, COMRADE.",
+
+"WE HAVE BEEN EXPECTING YOU."
+```
+
+];
+
+/* ==========================================
+INTRO MESSAGE SYSTEM
+========================================== */
+
+function showIntroMessage() {
+
+```
+if (introIndex >= introMessages.length) {
+
+    finishIntro();
+
+    return;
 
 }
 
 
-// ==========================================
-// SHOW INTRO MESSAGE
-// ==========================================
+introText.textContent =
+    introMessages[introIndex];
 
-function showIntroMessage() {
 
-    if (introIndex >= introMessages.length) {
+introText.style.opacity = "0";
 
-        finishIntro();
+
+setTimeout(() => {
+
+    introText.style.opacity = "1";
+
+}, 100);
+
+
+setTimeout(() => {
+
+    introText.style.opacity = "0";
+
+}, 1500);
+
+
+setTimeout(() => {
+
+    introIndex++;
+
+    showIntroMessage();
+
+}, 2000);
+```
+
+}
+
+/* ==========================================
+FINISH INTRO
+========================================== */
+
+function finishIntro() {
+
+```
+let lineIndex = 0;
+
+
+introText.style.opacity = "1";
+
+introText.textContent = "";
+
+
+function showNextLine() {
+
+    if (lineIndex >= endMessages.length) {
+
+        setTimeout(() => {
+
+            introScreen.style.opacity = "0";
+
+
+            setTimeout(() => {
+
+                introScreen.style.display =
+                    "none";
+
+
+                cultInterface.classList.add(
+                    "visible"
+                );
+
+            }, 1000);
+
+        }, 1500);
+
 
         return;
 
@@ -89,253 +176,556 @@ function showIntroMessage() {
     setTimeout(() => {
 
         introText.textContent =
-            introMessages[introIndex];
+            endMessages[lineIndex];
+
 
         introText.style.opacity = "1";
+
+
+        lineIndex++;
 
     }, 300);
 
 
     setTimeout(() => {
 
-        introText.style.opacity = "0";
+        showNextLine();
 
-    }, 1700);
-
-
-    setTimeout(() => {
-
-        introIndex++;
-
-        showIntroMessage();
-
-    }, 2200);
+    }, 1800);
 
 }
 
 
-// ==========================================
-// FINISH INTRO
-// ==========================================
-
-function finishIntro() {
-
-    let lineIndex = 0;
-
-
-    function showNextLine() {
-
-        if (lineIndex >= endMessages.length) {
-
-            setTimeout(() => {
-
-                introScreen.style.opacity = "0";
-
-
-                setTimeout(() => {
-
-                    introScreen.style.display = "none";
-
-                    cultInterface.classList.add("visible");
-
-                }, 1000);
-
-            }, 2000);
-
-            return;
-
-        }
-
-
-        introText.style.opacity = "0";
-
-
-        setTimeout(() => {
-
-            introText.textContent =
-                endMessages[lineIndex];
-
-            introText.style.opacity = "1";
-
-            lineIndex++;
-
-        }, 300);
-
-
-        setTimeout(() => {
-
-            showNextLine();
-
-        }, 1800);
-
-    }
-
-
-    showNextLine();
+showNextLine();
+```
 
 }
 
-
-// ==========================================
-// START INTRO
-// ==========================================
+/* ==========================================
+START INTRO
+========================================== */
 
 introScreen.style.transition =
-    "opacity 1s ease";
+"opacity 1s ease";
 
 introText.style.transition =
-    "opacity .4s ease";
+"opacity .4s ease";
 
+/*
+Attempt to start the sound when
+the intro begins.
 
-// Start ambience
+```
+Browsers may block autoplay.
+```
+
+*/
 
 if (ominousSound) {
 
-    ominousSound.play().catch(() => {
+```
+ominousSound.currentTime = 0;
 
-        console.log(
-            "Autoplay blocked. Sound will start after interaction."
-        );
+ominousSound.play().catch(() => {
 
-    });
+    console.log(
+        "Audio autoplay blocked by browser."
+    );
+
+});
+```
+
+}
+
+showIntroMessage();
+
+/* ==========================================
+NAVIGATION
+========================================== */
+
+const navButtons =
+document.querySelectorAll(".navButton");
+
+const archiveCards =
+document.querySelectorAll(".archiveCard");
+
+const pages =
+document.querySelectorAll(".page");
+
+const pageTitle =
+document.getElementById("pageTitle");
+
+/* ==========================================
+OPEN PAGE
+========================================== */
+
+function openPage(pageID) {
+
+```
+pages.forEach(page => {
+
+    page.classList.remove(
+        "activePage"
+    );
+
+});
+
+
+navButtons.forEach(button => {
+
+    button.classList.remove(
+        "active"
+    );
+
+});
+
+
+const target =
+    document.getElementById(pageID);
+
+
+if (!target) {
+
+    console.error(
+        "Page not found:",
+        pageID
+    );
+
+    return;
 
 }
 
 
-// Fallback for browser autoplay restrictions
+target.classList.add(
+    "activePage"
+);
 
-document.addEventListener("click", () => {
 
-    if (!ominousSound) return;
+const matchingButton =
+    document.querySelector(
+        `.navButton[data-page="${pageID}"]`
+    );
 
-    if (ominousSound.paused) {
 
-        ominousSound.play().catch(() => {});
+if (matchingButton) {
+
+    matchingButton.classList.add(
+        "active"
+    );
+
+}
+
+
+pageTitle.textContent =
+    pageID
+        .replace("-", " ")
+        .toUpperCase();
+
+
+window.scrollTo({
+
+    top: 0,
+
+    behavior: "smooth"
+
+});
+
+
+/*
+    If COMMS is opened,
+    refresh messages.
+*/
+
+if (pageID === "comms") {
+
+    loadMessages();
+
+}
+```
+
+}
+
+/* ==========================================
+SIDEBAR BUTTONS
+========================================== */
+
+navButtons.forEach(button => {
+
+```
+button.addEventListener(
+    "click",
+    () => {
+
+        const page =
+            button.dataset.page;
+
+
+        openPage(page);
+
+    }
+);
+```
+
+});
+
+/* ==========================================
+ARCHIVE CARDS
+========================================== */
+
+archiveCards.forEach(card => {
+
+```
+card.addEventListener(
+    "click",
+    () => {
+
+        const page =
+            card.dataset.page;
+
+
+        openPage(page);
+
+    }
+);
+```
+
+});
+
+/* ==========================================
+COMMS ELEMENTS
+========================================== */
+
+const messagesContainer =
+document.getElementById("messages");
+
+const messageForm =
+document.getElementById("messageForm");
+
+const usernameInput =
+document.getElementById("username");
+
+const messageInput =
+document.getElementById("messageInput");
+
+/* ==========================================
+LOAD MESSAGES
+========================================== */
+
+async function loadMessages() {
+
+```
+if (!messagesContainer) {
+
+    return;
+
+}
+
+
+try {
+
+    const response =
+        await fetch(
+            `${API_URL}/api/messages`
+        );
+
+
+    if (!response.ok) {
+
+        throw new Error(
+            "Failed to load messages."
+        );
 
     }
 
-}, { once: true });
+
+    const messages =
+        await response.json();
 
 
-showIntroMessage();
+    messagesContainer.innerHTML = "";
 
 
-// ==========================================
-// NAVIGATION
-// ==========================================
+    if (
+        !Array.isArray(messages) ||
+        messages.length === 0
+    ) {
 
-const navButtons =
-    document.querySelectorAll(".navButton");
+        messagesContainer.innerHTML = `
 
-const archiveCards =
-    document.querySelectorAll(".archiveCard");
+            <div class="messageLoading">
 
-const pages =
-    document.querySelectorAll(".page");
+                NO COMMUNICATIONS RECORDED.
 
-const pageTitle =
-    document.getElementById("pageTitle");
+            </div>
 
-
-// ==========================================
-// OPEN PAGE
-// ==========================================
-
-function openPage(pageID) {
-
-    pages.forEach(page => {
-
-        page.classList.remove("activePage");
-
-    });
-
-
-    navButtons.forEach(button => {
-
-        button.classList.remove("active");
-
-    });
-
-
-    const target =
-        document.getElementById(pageID);
-
-
-    if (!target) {
+        `;
 
         return;
 
     }
 
 
-    target.classList.add("activePage");
+    messages.forEach(message => {
 
-
-    const matchingButton =
-        document.querySelector(
-            `.navButton[data-page="${pageID}"]`
-        );
-
-
-    if (matchingButton) {
-
-        matchingButton.classList.add("active");
-
-    }
-
-
-    if (pageTitle) {
-
-        pageTitle.textContent =
-            pageID
-                .replace("-", " ")
-                .toUpperCase();
-
-    }
-
-
-    window.scrollTo({
-
-        top: 0,
-
-        behavior: "smooth"
+        displayMessage(message);
 
     });
+
+
+    scrollMessagesToBottom();
+
+
+} catch (error) {
+
+    console.error(
+        "COMMS ERROR:",
+        error
+    );
+
+
+    messagesContainer.innerHTML = `
+
+        <div class="messageLoading">
+
+            CONNECTION FAILURE.
+
+        </div>
+
+    `;
+
+}
+```
+
+}
+
+/* ==========================================
+DISPLAY MESSAGE
+========================================== */
+
+function displayMessage(message) {
+
+```
+const element =
+    document.createElement("div");
+
+
+element.className =
+    "message";
+
+
+const user =
+    document.createElement("span");
+
+
+user.className =
+    "messageUser";
+
+
+user.textContent =
+    message.username;
+
+
+const text =
+    document.createElement("p");
+
+
+text.textContent =
+    message.content;
+
+
+const time =
+    document.createElement("span");
+
+
+time.className =
+    "messageTime";
+
+
+if (message.created_at) {
+
+    time.textContent =
+        new Date(
+            message.created_at
+        ).toLocaleString();
 
 }
 
 
-// ==========================================
-// SIDEBAR BUTTONS
-// ==========================================
+element.appendChild(user);
 
-navButtons.forEach(button => {
+element.appendChild(text);
 
-    button.addEventListener("click", () => {
-
-        const page =
-            button.dataset.page;
-
-        openPage(page);
-
-    });
-
-});
+element.appendChild(time);
 
 
-// ==========================================
-// ARCHIVE CARDS
-// ==========================================
+messagesContainer.appendChild(
+    element
+);
+```
 
-archiveCards.forEach(card => {
+}
 
-    card.addEventListener("click", () => {
+/* ==========================================
+SEND MESSAGE
+========================================== */
 
-        const page =
-            card.dataset.page;
+if (messageForm) {
 
-        openPage(page);
+```
+messageForm.addEventListener(
+    "submit",
+    async event => {
 
-    });
+        event.preventDefault();
 
-});
+
+        const username =
+            usernameInput.value.trim();
+
+
+        const content =
+            messageInput.value.trim();
+
+
+        if (!username || !content) {
+
+            return;
+
+        }
+
+
+        const button =
+            messageForm.querySelector(
+                "button"
+            );
+
+
+        button.disabled = true;
+
+        button.textContent =
+            "TRANSMITTING...";
+
+
+        try {
+
+            const response =
+                await fetch(
+                    `${API_URL}/api/messages`,
+                    {
+
+                        method: "POST",
+
+                        headers: {
+
+                            "Content-Type":
+                                "application/json"
+
+                        },
+
+                        body: JSON.stringify({
+
+                            username:
+                                username,
+
+                            content:
+                                content
+
+                        })
+
+                    }
+                );
+
+
+            if (!response.ok) {
+
+                throw new Error(
+                    "Transmission failed."
+                );
+
+            }
+
+
+            const message =
+                await response.json();
+
+
+            /*
+                Remove the
+                "no messages" screen
+                if it exists.
+            */
+
+            messagesContainer.innerHTML =
+                messagesContainer.innerHTML
+                    .replace(
+                        /<div class="messageLoading">[\s\S]*?<\/div>/,
+                        ""
+                    );
+
+
+            displayMessage(
+                message
+            );
+
+
+            messageInput.value =
+                "";
+
+
+            scrollMessagesToBottom();
+
+
+        } catch (error) {
+
+            console.error(
+                "TRANSMISSION ERROR:",
+                error
+            );
+
+
+            alert(
+                "TRANSMISSION FAILED."
+            );
+
+        } finally {
+
+            button.disabled =
+                false;
+
+
+            button.textContent =
+                "TRANSMIT";
+
+        }
+
+    }
+);
+```
+
+}
+
+/* ==========================================
+SCROLL MESSAGES
+========================================== */
+
+function scrollMessagesToBottom() {
+
+```
+if (!messagesContainer) {
+
+    return;
+
+}
+
+
+messagesContainer.scrollTop =
+    messagesContainer.scrollHeight;
+```
+
+}
+
+/* ==========================================
+INITIAL COMMS LOAD
+========================================== */
+
+loadMessages();
