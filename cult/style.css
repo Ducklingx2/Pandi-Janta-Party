@@ -1105,3 +1105,439 @@ body{
     }
 
 }
+
+/* =====================================
+   COMMS SECTION
+   ADD TO EXISTING STYLE.CSS
+===================================== */
+
+
+/* =====================================
+   COMMS CONTAINER
+===================================== */
+
+.commsInterface {
+
+    width:100%;
+
+    border:1px solid var(--border);
+
+    background:#060606;
+
+}
+
+
+/* =====================================
+   COMMS HEADER
+===================================== */
+
+.commsHeader {
+
+    min-height:90px;
+
+    padding:25px 30px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    border-bottom:1px solid var(--border);
+
+    background:#080808;
+
+}
+
+
+.commsLabel {
+
+    display:block;
+
+    color:var(--accentBright);
+
+    font-size:9px;
+
+    letter-spacing:3px;
+
+    margin-bottom:8px;
+
+}
+
+
+.commsHeader h3 {
+
+    font-size:14px;
+
+    letter-spacing:2px;
+
+}
+
+
+.commsStatus {
+
+    color:#6b9f6b;
+
+    font-size:9px;
+
+    letter-spacing:2px;
+
+    white-space:nowrap;
+
+}
+
+
+/* =====================================
+   MESSAGE WINDOW
+===================================== */
+
+.messages {
+
+    height:500px;
+
+    overflow-y:auto;
+
+    padding:25px 30px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+    background:#030303;
+
+}
+
+
+/* =====================================
+   MESSAGE SCROLLBAR
+===================================== */
+
+.messages::-webkit-scrollbar {
+
+    width:5px;
+
+}
+
+
+.messages::-webkit-scrollbar-track {
+
+    background:#030303;
+
+}
+
+
+.messages::-webkit-scrollbar-thumb {
+
+    background:#242424;
+
+}
+
+
+.messages::-webkit-scrollbar-thumb:hover {
+
+    background:#383838;
+
+}
+
+
+/* =====================================
+   INDIVIDUAL MESSAGE
+===================================== */
+
+.message {
+
+    padding:15px 18px;
+
+    border-left:2px solid #242424;
+
+    background:#090909;
+
+    transition:
+        background .2s ease,
+        border-color .2s ease;
+
+}
+
+
+.message:hover {
+
+    background:#0d0d0d;
+
+    border-left-color:
+        var(--accentBright);
+
+}
+
+
+/* =====================================
+   USERNAME
+===================================== */
+
+.messageUser {
+
+    display:block;
+
+    margin-bottom:8px;
+
+    color:var(--accentBright);
+
+    font-size:9px;
+
+    letter-spacing:3px;
+
+}
+
+
+/* =====================================
+   MESSAGE CONTENT
+===================================== */
+
+.message p {
+
+    margin:0;
+
+    color:#aaa;
+
+    font-size:12px;
+
+    line-height:1.7;
+
+    word-break:break-word;
+
+}
+
+
+/* =====================================
+   TIMESTAMP
+===================================== */
+
+.messageTime {
+
+    display:block;
+
+    margin-top:10px;
+
+    color:#444;
+
+    font-size:8px;
+
+    letter-spacing:1px;
+
+}
+
+
+/* =====================================
+   LOADING / EMPTY STATE
+===================================== */
+
+.messageLoading {
+
+    margin:auto;
+
+    color:#444;
+
+    font-size:10px;
+
+    letter-spacing:2px;
+
+    text-align:center;
+
+}
+
+
+/* =====================================
+   MESSAGE FORM
+===================================== */
+
+.messageForm {
+
+    display:grid;
+
+    grid-template-columns:
+        180px
+        minmax(0,1fr)
+        120px;
+
+    border-top:1px solid var(--border);
+
+    background:#050505;
+
+}
+
+
+/* =====================================
+   INPUTS
+===================================== */
+
+.messageForm input {
+
+    width:100%;
+
+    min-width:0;
+
+    padding:18px;
+
+    border:0;
+
+    border-right:1px solid var(--border);
+
+    outline:none;
+
+    background:#030303;
+
+    color:#e7e7e7;
+
+    font-family:inherit;
+
+    font-size:10px;
+
+    letter-spacing:1px;
+
+}
+
+
+.messageForm input::placeholder {
+
+    color:#444;
+
+}
+
+
+.messageForm input:focus {
+
+    background:#080808;
+
+}
+
+
+/* =====================================
+   TRANSMIT BUTTON
+===================================== */
+
+.messageForm button {
+
+    border:0;
+
+    background:var(--accent);
+
+    color:#fff;
+
+    font-family:inherit;
+
+    font-size:9px;
+
+    letter-spacing:2px;
+
+    cursor:pointer;
+
+    transition:
+        background .2s ease,
+        transform .1s ease;
+
+}
+
+
+.messageForm button:hover {
+
+    background:var(--accentBright);
+
+}
+
+
+.messageForm button:active {
+
+    transform:scale(.98);
+
+}
+
+
+.messageForm button:disabled {
+
+    opacity:.5;
+
+    cursor:not-allowed;
+
+}
+
+
+/* =====================================
+   COMMS WARNING
+===================================== */
+
+.commsWarning {
+
+    margin-top:15px;
+
+    padding:12px 15px;
+
+    border:1px solid #281010;
+
+    background:#090505;
+
+    color:#5c3333;
+
+    font-size:8px;
+
+    letter-spacing:2px;
+
+}
+
+
+/* =====================================
+   MOBILE
+===================================== */
+
+@media(max-width:700px) {
+
+    .commsHeader {
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:15px;
+
+    }
+
+
+    .commsStatus {
+
+        white-space:normal;
+
+    }
+
+
+    .messages {
+
+        height:400px;
+
+        padding:20px;
+
+    }
+
+
+    .messageForm {
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .messageForm input {
+
+        border-right:0;
+
+        border-bottom:1px solid var(--border);
+
+    }
+
+
+    .messageForm button {
+
+        min-height:50px;
+
+    }
+
+}
