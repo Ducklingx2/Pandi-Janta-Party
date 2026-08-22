@@ -1,721 +1,774 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
 
-    <meta charset="UTF-8">
+```
+<meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
-    <title>Pandist Cult</title>
+<title>Pandist Cult</title>
 
-    <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css">
+```
 
 </head>
-
 
 <body>
 
 <audio
-    id="ominousSound"
-    src="../assets/ominous.mp3"
-    preload="auto"
-    loop>
-</audio>
+ id="ominousSound"
+ src="assets/ominous.mp3"
+ preload="auto"> </audio>
 
-    <!-- =====================================
-         INTRO / BARRIER SCREEN
-    ====================================== -->
+<!-- =====================================
+     INTRO / BARRIER SCREEN
+====================================== -->
 
-    <div id="introScreen">
+<div id="introScreen">
 
-        <div id="introText"></div>
+```
+<div id="introText"></div>
+```
+
+</div>
+
+<!-- =====================================
+     MAIN INTERFACE
+====================================== -->
+
+<div id="cultInterface">
+
+```
+<!-- =================================
+     SIDEBAR
+================================== -->
+
+<aside class="sidebar">
+
+    <div class="cultLogo">
+
+        <span class="logoSmall">
+            PANDIST
+        </span>
+
+        <span class="logoLarge">
+            CULT
+        </span>
 
     </div>
 
 
+    <div class="classification">
 
-    <!-- =====================================
-         MAIN INTERFACE
-    ====================================== -->
+        CLASSIFICATION
 
-    <div id="cultInterface">
+        <strong>
+            RESTRICTED
+        </strong>
+
+    </div>
 
 
-        <!-- =================================
-             SIDEBAR
-        ================================== -->
+    <nav>
 
-        <aside class="sidebar">
+        <button
+            class="navButton active"
+            data-page="home"
+        >
+            HOME
+        </button>
 
-            <div class="cultLogo">
 
-                <span class="logoSmall">
-                    PANDIST
-                </span>
+        <button
+            class="navButton"
+            data-page="founder"
+        >
+            SORCERERS
+        </button>
 
-                <span class="logoLarge">
-                    CULT
-                </span>
 
+        <button
+            class="navButton"
+            data-page="doctrine"
+        >
+            DOCTRINE
+        </button>
+
+
+        <button
+            class="navButton"
+            data-page="techniques"
+        >
+            TECHNIQUES
+        </button>
+
+        
+        <button
+            class="navButton"
+            data-page="comms"
+        >
+            COMMS
+        </button>
+
+
+        <button
+            class="navButton"
+            data-page="archives"
+        >
+            ARCHIVES
+        </button>
+
+    </nav>
+
+
+    <div class="sidebarBottom">
+
+        <div>
+            NETWORK STATUS
+        </div>
+
+        <span class="status">
+            ● ONLINE
+        </span>
+
+    </div>
+
+</aside>
+
+
+<!-- =================================
+     MAIN CONTENT
+================================== -->
+
+<main class="content">
+
+
+    <!-- =================================
+         TOP BAR
+    ================================== -->
+
+    <header class="topbar">
+
+        <div>
+
+            <span class="tinyText">
+                PANDIST CULT NETWORK
+            </span>
+
+            <h1 id="pageTitle">
+                HOME
+            </h1>
+
+        </div>
+
+
+        <div class="systemStatus">
+
+            <span>
+                SYSTEM
+            </span>
+
+            <strong>
+                STABLE
+            </strong>
+
+        </div>
+
+    </header>
+
+
+    <!-- =================================
+         HOME
+    ================================== -->
+
+    <section
+        class="page activePage"
+        id="home"
+    >
+
+        <div class="heroCult">
+
+            <div class="warning">
+                ⚠ RESTRICTED ACCESS
             </div>
 
 
-            <div class="classification">
+            <h2>
 
-                CLASSIFICATION
+                YOU HAVE ENTERED
+                <span>THE PANDIST CULT</span>
 
-                <strong>
-                    RESTRICTED
-                </strong>
+            </h2>
+
+
+            <p class="subtitle">
+
+                This system was not designed
+                to be found.
+
+            </p>
+
+
+            <div class="terminal">
+
+                <div>
+                    SYSTEM STATUS
+                </div>
+
+                <div class="terminalLine">
+
+                    BARRIER:
+
+                    <span>
+                        BREACHED
+                    </span>
+
+                </div>
+
+                <div class="terminalLine">
+
+                    INTRUDER:
+
+                    <span>
+                        DETECTED
+                    </span>
+
+                </div>
+
+                <div class="terminalLine">
+
+                    NETWORK:
+
+                    <span>
+                        CONNECTED
+                    </span>
+
+                </div>
+
+                <div class="terminalLine">
+
+                    PANDI:
+
+                    <span>
+                        WATCHING
+                    </span>
+
+                </div>
 
             </div>
 
-
-            <nav>
-
-                <button
-                    class="navButton active"
-                    data-page="home"
-                >
-                    HOME
-                </button>
+        </div>
 
 
-                <button
-                    class="navButton"
-                    data-page="founder"
-                >
-                    SORCERERS
-                </button>
+        <!-- ARCHIVE GRID -->
+
+        <div class="sectionHeading">
+
+            <span>
+                ARCHIVE INDEX
+            </span>
+
+            <small>
+                SELECT A RECORD
+            </small>
+
+        </div>
 
 
-                <button
-                    class="navButton"
-                    data-page="doctrine"
-                >
-                    DOCTRINE
-                </button>
+        <div class="archiveGrid">
 
 
-                <button
-                    class="navButton"
-                    data-page="techniques"
-                >
+            <button
+                class="archiveCard"
+                data-page="founder"
+            >
+
+                <span class="archiveNumber">
+                    001
+                </span>
+
+                <h3>
+                    REGISTERED SORCERCERS
+                </h3>
+
+                <p>
+                    Personnel records.
+                </p>
+
+            </button>
+
+
+            <button
+                class="archiveCard"
+                data-page="doctrine"
+            >
+
+                <span class="archiveNumber">
+                    002
+                </span>
+
+                <h3>
+                    THE DOCTRINE
+                </h3>
+
+                <p>
+                    Restricted teachings.
+                </p>
+
+            </button>
+
+
+            <button
+                class="archiveCard"
+                data-page="techniques"
+            >
+
+                <span class="archiveNumber">
+                    003
+                </span>
+
+                <h3>
                     TECHNIQUES
-                </button>
+                </h3>
+
+                <p>
+                    Classified abilities.
+                </p>
+
+            </button>
+
+            <button
+                class="archiveCard"
+                data-page="comms"
+            >
+
+                <span class="archiveNumber">
+                    005
+                </span>
+
+                <h3>
+                    COMMS
+                </h3>
+
+                <p>
+                    Restricted communications.
+                </p>
+
+            </button>
 
 
-                <button
-                    class="navButton"
-                    data-page="domains"
-                >
-                    DOMAIN RECORDS
-                </button>
+            <button
+                class="archiveCard"
+                data-page="archives"
+            >
+
+                <span class="archiveNumber">
+                    006
+                </span>
+
+                <h3>
+                    INCIDENT ARCHIVES
+                </h3>
+
+                <p>
+                    Historical records.
+                </p>
+
+            </button>
 
 
-                <button
-                    class="navButton"
-                    data-page="archives"
-                >
-                    ARCHIVES
-                </button>
+        </div>
 
-            </nav>
+    </section>
 
 
-            <div class="sidebarBottom">
+    <!-- =================================
+         FOUNDER
+    ================================== -->
 
-                <div>
-                    NETWORK STATUS
+    <section
+        class="page"
+        id="founder"
+    >
+
+        <div class="pageHeader">
+
+            <span>
+                RECORD 001
+            </span>
+
+            <h2>
+                REGISTERED SORCERCERS
+            </h2>
+
+        </div>
+
+
+        <div class="dossier">
+
+            <div class="dossierLabel">
+                PERSONNEL FILE
+            </div>
+
+
+            <div class="dossierContent">
+
+                <div class="placeholderPortrait">
+
+                    <span>
+                        FOUNDER
+                    </span>
+
                 </div>
 
-                <span class="status">
-                    ● ONLINE
-                </span>
+
+                <div>
+
+                    <h3>
+                        VIHAAN BHUSHAN
+                    </h3>
+
+
+                    <p>
+
+                        <span>
+                            SPECIAL GRADE
+                        </span>
+
+                        <b>
+                            Pandi Sorcercer
+                        </b>
+
+                        Only known sorcercer to have
+                        mastered the Lightspeed technique.
+
+                        One of the few sorcercers in
+                        history to have an innate
+                        energy reserve.
+
+                    </p>
+
+
+                    <p>
+
+                        <b>
+                            <span>
+                                Techniques:
+                            </span>
+                        </b>
+
+                        - Lightspeed
+                        - Limitless
+                        - Wind Manipulation
+                        - Perfect Accuracy
+
+                    </p>
+
+                </div>
 
             </div>
 
-        </aside>
+        </div>
+
+    </section>
 
 
+    <!-- =================================
+         DOCTRINE
+    ================================== -->
 
-        <!-- =================================
-             MAIN CONTENT
-        ================================== -->
+    <section
+        class="page"
+        id="doctrine"
+    >
 
-        <main class="content">
+        <div class="pageHeader">
+
+            <span>
+                RECORD 002
+            </span>
+
+            <h2>
+                THE DOCTRINE
+            </h2>
+
+        </div>
 
 
-            <!-- HEADER -->
+        <div class="classifiedBox">
 
-            <header class="topbar">
+            <div class="classified">
+                CLASSIFIED
+            </div>
+
+
+            <h3>
+                YOUR LORE GOES HERE
+            </h3>
+
+
+            <p>
+                Replace this section with
+                your Pandist Cult doctrine.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================
+         TECHNIQUES
+    ================================== -->
+
+    <section
+        class="page"
+        id="techniques"
+    >
+
+        <div class="pageHeader">
+
+            <span>
+                RECORD 003
+            </span>
+
+            <h2>
+                TECHNIQUES
+            </h2>
+
+        </div>
+
+
+        <div class="recordList">
+
+
+            <div class="record">
+
+                <span>
+                    TECHNIQUE 001
+                </span>
+
+                <h3>
+                    YOUR TECHNIQUE
+                </h3>
+
+                <p>
+                    Insert your lore here.
+                </p>
+
+            </div>
+
+
+            <div class="record">
+
+                <span>
+                    TECHNIQUE 002
+                </span>
+
+                <h3>
+                    YOUR TECHNIQUE
+                </h3>
+
+                <p>
+                    Insert your lore here.
+                </p>
+
+            </div>
+
+
+            <div class="record">
+
+                <span>
+                    TECHNIQUE 003
+                </span>
+
+                <h3>
+                    YOUR TECHNIQUE
+                </h3>
+
+                <p>
+                    Insert your lore here.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+    <!-- =================================
+         COMMS
+    ================================== -->
+
+    <section
+        class="page"
+        id="comms"
+    >
+
+        <div class="pageHeader">
+
+            <span>
+                NETWORK CHANNEL
+            </span>
+
+            <h2>
+                COMMS
+            </h2>
+
+        </div>
+
+
+        <div class="commsInterface">
+
+
+            <div class="commsHeader">
 
                 <div>
 
-                    <span class="tinyText">
-                        PANDIST CULT NETWORK
-                    </span>
-
-                    <h1 id="pageTitle">
-                        HOME
-                    </h1>
-
-                </div>
-
-
-                <div class="systemStatus">
-
-                    <span>
-                        SYSTEM
-                    </span>
-
-                    <strong>
-                        STABLE
-                    </strong>
-
-                </div>
-
-            </header>
-
-
-
-            <!-- =================================
-                 HOME
-            ================================== -->
-
-            <section
-                class="page activePage"
-                id="home"
-            >
-
-                <div class="heroCult">
-
-                    <div class="warning">
-                        ⚠ RESTRICTED ACCESS
-                    </div>
-
-
-                    <h2>
-                        YOU HAVE ENTERED
-                        <span>THE PANDIST CULT</span>
-                    </h2>
-
-
-                    <p class="subtitle">
-
-                        This system was not designed
-                        to be found.
-
-                    </p>
-
-
-                    <div class="terminal">
-
-                        <div>
-                            SYSTEM STATUS
-                        </div>
-
-                        <div class="terminalLine">
-                            BARRIER:
-                            <span>BREACHED</span>
-                        </div>
-
-                        <div class="terminalLine">
-                            INTRUDER:
-                            <span>DETECTED</span>
-                        </div>
-
-                        <div class="terminalLine">
-                            NETWORK:
-                            <span>CONNECTED</span>
-                        </div>
-
-                        <div class="terminalLine">
-                            PANDI:
-                            <span>WATCHING</span>
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- =================================
-                     DOSSIER GRID
-                ================================== -->
-
-                <div class="sectionHeading">
-
-                    <span>
-                        ARCHIVE INDEX
-                    </span>
-
-                    <small>
-                        SELECT A RECORD
-                    </small>
-
-                </div>
-
-
-                <div class="archiveGrid">
-
-
-                    <button
-                        class="archiveCard"
-                        data-page="founder"
-                    >
-
-                        <span class="archiveNumber">
-                            001
-                        </span>
-
-                        <h3>
-                            REGISTERED SORCERERS
-                        </h3>
-
-                        <p>
-                            Personnel records.
-                        </p>
-
-                    </button>
-
-
-
-                    <button
-                        class="archiveCard"
-                        data-page="doctrine"
-                    >
-
-                        <span class="archiveNumber">
-                            002
-                        </span>
-
-                        <h3>
-                            THE DOCTRINE
-                        </h3>
-
-                        <p>
-                            Restricted teachings.
-                        </p>
-
-                    </button>
-
-
-
-                    <button
-                        class="archiveCard"
-                        data-page="techniques"
-                    >
-
-                        <span class="archiveNumber">
-                            003
-                        </span>
-
-                        <h3>
-                            TECHNIQUES
-                        </h3>
-
-                        <p>
-                            Classified abilities.
-                        </p>
-
-                    </button>
-
-
-
-                    <button
-                        class="archiveCard"
-                        data-page="domains"
-                    >
-
-                        <span class="archiveNumber">
-                            004
-                        </span>
-
-                        <h3>
-                            DOMAIN RECORDS
-                        </h3>
-
-                        <p>
-                            Reality alteration records.
-                        </p>
-
-                    </button>
-
-
-
-                    <button
-                        class="archiveCard"
-                        data-page="archives"
-                    >
-
-                        <span class="archiveNumber">
-                            005
-                        </span>
-
-                        <h3>
-                            INCIDENT ARCHIVES
-                        </h3>
-
-                        <p>
-                            Historical records.
-                        </p>
-
-                    </button>
-
-
-                </div>
-
-            </section>
-
-
-
-            <!-- =================================
-                 FOUNDER
-            ================================== -->
-
-            <section
-                class="page"
-                id="founder"
-            >
-
-                <div class="pageHeader">
-
-                    <span>
-                        RECORD 001
-                    </span>
-
-                    <h2>
-                        REGISTERED SORCERERS
-                    </h2>
-
-                </div>
-
-
-                <div class="dossier">
-
-                    <div class="dossierLabel">
-                        PERSONNEL FILE
-                    </div>
-
-
-                    <div class="dossierContent">
-
-                        <div class="placeholderPortrait">
-                            <span>
-                                FOUNDER
-                            </span>
-                        </div>
-
-
-                        <div>
-
-                            <h3>
-                                VIHAAN BHUSHAN
-                            </h3>
-
-                            <p>
-                               <span>SPECIAL GRADE</span><b> Pandi Sorcercer</b>
-                                One of the two sorcerers to have mastered the Lightspeed technique.
-                                One of the few sorcerers in history to have an innate energy reserve.
-                            </p>
-
-                            <p>
-                              <b><span>Techniques:</span></b>
-                                -Lightspeed<br>
-                                -Boundless<br>
-                                -Wind Manipulation<br>
-                                -Perfect Accuracy<br>
-                                -Debt Red<br>
-                                -Bankrupt Blue<br>
-                                -<b>Homeless Purple</b>*<br>
-
-                                Domain Expansion: Absent
-                                Domain Violation: Present
-                                <b>Domain Violation: Negative Space</b>
-                                Distorts Reality to make the Domain user see every attack hitting, 
-                                however, the nanosecond the Domain is closed, all inflicted attacks are reflected.
-                                Disadvantage:
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </section>
-
-
-
-            <!-- =================================
-                 DOCTRINE
-            ================================== -->
-
-            <section
-                class="page"
-                id="doctrine"
-            >
-
-                <div class="pageHeader">
-
-                    <span>
-                        RECORD 002
-                    </span>
-
-                    <h2>
-                        THE DOCTRINE
-                    </h2>
-
-                </div>
-
-
-                <div class="classifiedBox">
-
-                    <div class="classified">
-                        CLASSIFIED
-                    </div>
-
-
-                    <h3>
-                        YOUR LORE GOES HERE
-                    </h3>
-
-
-                    <p>
-                        Replace this section with
-                        your Pandist Cult doctrine.
-                    </p>
-
-                </div>
-
-            </section>
-
-
-
-            <!-- =================================
-                 TECHNIQUES
-            ================================== -->
-
-            <section
-                class="page"
-                id="techniques"
-            >
-
-                <div class="pageHeader">
-
-                    <span>
-                        RECORD 003
-                    </span>
-
-                    <h2>
-                        TECHNIQUES
-                    </h2>
-
-                </div>
-
-
-                <div class="recordList">
-
-
-                    <div class="record">
-
-                        <span>
-                            TECHNIQUE 001
-                        </span>
-
-                        <h3>
-                            YOUR TECHNIQUE
-                        </h3>
-
-                        <p>
-                            Insert your lore here.
-                        </p>
-
-                    </div>
-
-
-                    <div class="record">
-
-                        <span>
-                            TECHNIQUE 002
-                        </span>
-
-                        <h3>
-                            YOUR TECHNIQUE
-                        </h3>
-
-                        <p>
-                            Insert your lore here.
-                        </p>
-
-                    </div>
-
-
-                    <div class="record">
-
-                        <span>
-                            TECHNIQUE 003
-                        </span>
-
-                        <h3>
-                            YOUR TECHNIQUE
-                        </h3>
-
-                        <p>
-                            Insert your lore here.
-                        </p>
-
-                    </div>
-
-
-                </div>
-
-            </section>
-
-
-
-            <!-- =================================
-                 DOMAINS
-            ================================== -->
-
-            <section
-                class="page"
-                id="domains"
-            >
-
-                <div class="pageHeader">
-
-                    <span>
-                        RECORD 004
-                    </span>
-
-                    <h2>
-                        DOMAIN RECORDS
-                    </h2>
-
-                </div>
-
-
-                <div class="domainWarning">
-
-                    ⚠ REALITY ALTERATION DETECTED
-
-                </div>
-
-
-                <div class="domainRecord">
-
-                    <div class="domainTop">
-
-                        <span>
-                            DOMAIN EXPANSION
-                        </span>
-
-                        <span>
-                            STATUS: UNKNOWN
-                        </span>
-
-                    </div>
-
-
-                    <h3>
-                        YOUR DOMAIN
-                    </h3>
-
-
-                    <p>
-                        Insert your domain lore here.
-                    </p>
-
-
-                    <div class="meter">
-
-                        <div></div>
-
-                    </div>
-
-
-                    <span class="meterLabel">
-                        STABILITY
-                    </span>
-
-                </div>
-
-            </section>
-
-
-
-            <!-- =================================
-                 ARCHIVES
-            ================================== -->
-
-            <section
-                class="page"
-                id="archives"
-            >
-
-                <div class="pageHeader">
-
-                    <span>
-                        RECORD 005
-                    </span>
-
-                    <h2>
-                        INCIDENT ARCHIVES
-                    </h2>
-
-                </div>
-
-
-                <div class="incident">
-
-                    <span>
-                        INCIDENT 001
+                    <span class="commsLabel">
+                        PANDIST NETWORK
                     </span>
 
                     <h3>
-                        YOUR INCIDENT
+                        GENERAL COMMUNICATIONS
                     </h3>
-
-                    <p>
-                        Put your lore here.
-                    </p>
 
                 </div>
 
 
-                <div class="incident">
-
-                    <span>
-                        INCIDENT 002
-                    </span>
-
-                    <h3>
-                        YOUR INCIDENT
-                    </h3>
-
-                    <p>
-                        Put your lore here.
-                    </p>
-
+                <div class="commsStatus">
+                    ● CHANNEL ONLINE
                 </div>
 
-            </section>
+            </div>
 
 
-        </main>
+            <div
+                id="messages"
+                class="messages"
+            >
 
-    </div>
+                <div class="messageLoading">
+                    ESTABLISHING CONNECTION...
+                </div>
+
+            </div>
 
 
+            <form
+                id="messageForm"
+                class="messageForm"
+            >
 
-    <script src="script.js"></script>
+                <input
+                    id="username"
+                    type="text"
+                    placeholder="IDENTIFIER"
+                    maxlength="50"
+                    autocomplete="off"
+                    required
+                >
+
+
+                <input
+                    id="messageInput"
+                    type="text"
+                    placeholder="TRANSMIT MESSAGE..."
+                    maxlength="500"
+                    autocomplete="off"
+                    required
+                >
+
+
+                <button type="submit">
+                    TRANSMIT
+                </button>
+
+            </form>
+
+        </div>
+
+
+        <div class="commsWarning">
+
+            ⚠ ALL COMMUNICATIONS ARE LOGGED.
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================
+         ARCHIVES
+    ================================== -->
+
+    <section
+        class="page"
+        id="archives"
+    >
+
+        <div class="pageHeader">
+
+            <span>
+                RECORD 006
+            </span>
+
+            <h2>
+                INCIDENT ARCHIVES
+            </h2>
+
+        </div>
+
+
+        <div class="incident">
+
+            <span>
+                INCIDENT 001
+            </span>
+
+            <h3>
+                YOUR INCIDENT
+            </h3>
+
+            <p>
+                Put your lore here.
+            </p>
+
+        </div>
+
+
+        <div class="incident">
+
+            <span>
+                INCIDENT 002
+            </span>
+
+            <h3>
+                YOUR INCIDENT
+            </h3>
+
+            <p>
+                Put your lore here.
+            </p>
+
+        </div>
+
+    </section>
+
+
+</main>
+```
+
+</div>
+
+<script src="script.js"></script>
 
 </body>
 
